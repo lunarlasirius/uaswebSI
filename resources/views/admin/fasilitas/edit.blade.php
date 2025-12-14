@@ -4,7 +4,7 @@
 
 @section('pageTitle', 'Edit Fasilitas')
 @section('pageSubtitle', 'Perbarui data fasilitas jurusan.')
-@section('breadcrumb', 'Pages / <span class="text-dark">Fasilitas</span> / Edit')
+@section('breadcrumb', 'Pages/Fasilitas/Edit')
 
 @section('adminContent')
 <div class="container-fluid px-0">

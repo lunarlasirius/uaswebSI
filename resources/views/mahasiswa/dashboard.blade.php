@@ -4,7 +4,6 @@
 
 @push('styles')
 <style>
-    /* ===== Scope khusus halaman Mahasiswa ===== */
     .mhs-dashboard{
         --primary-main: #007bff;
         --primary-dark: #004d9a;
@@ -18,7 +17,6 @@
 
         background: var(--bg-page);
         padding: 50px 0;
-        /* Jangan pakai min-height:100vh agar footer layout tidak “ketarik” aneh */
     }
 
     /* === 1. HEADER DASHBOARD === */

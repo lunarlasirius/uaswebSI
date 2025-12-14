@@ -299,9 +299,9 @@
                 </h1>
 
                 <p class="home-hero-subtitle mb-0">
-                    Website resmi Jurusan Sistem Informasi yang menyajikan informasi profil,
+                    Website resmi Jurusan Sistem Informasi Universitas Musamus Merauke yang menyajikan informasi profil,
                     akademik, dosen, prestasi, dan berita terkini untuk mahasiswa, dosen,
-                    dan masyarakat umum.
+                    dan masyarakat.
                 </p>
             </div>
         </div>

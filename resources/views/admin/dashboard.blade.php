@@ -30,7 +30,6 @@
         font-size: 2.5rem;
     }
     
-    /* Navigasi Card Styling */
     .nav-card a {
         color: inherit;
         text-decoration: none;
@@ -139,10 +138,10 @@
                 </div>
                 <div class="card-body">
                     <ul class="list-group list-group-flush">
-                        <li class="list-group-item">Admin **John** telah mengedit Profil Jurusan. <span class="float-end text-muted small">5 menit lalu</span></li>
-                        <li class="list-group-item">Admin **Doe** menambahkan data Dosen baru (NIDN: 12345). <span class="float-end text-muted small">1 jam lalu</span></li>
+                        <li class="list-group-item">Admin **Nurul** telah mengedit Profil Jurusan. <span class="float-end text-muted small">5 menit lalu</span></li>
+                        <li class="list-group-item">Admin **Rika** menambahkan data Dosen baru (NIDN: 1210117701). <span class="float-end text-muted small">1 jam lalu</span></li>
                         <li class="list-group-item">Sistem: 5 Mahasiswa baru telah didaftarkan. <span class="float-end text-muted small">Kemarin</span></li>
-                        <li class="list-group-item">Admin **Jane** memperbarui data Mata Kuliah. <span class="float-end text-muted small">2 hari lalu</span></li>
+                        <li class="list-group-item">Admin **Audya** memperbarui data Mata Kuliah. <span class="float-end text-muted small">2 hari lalu</span></li>
                     </ul>
                     <a href="#" class="btn btn-sm btn-outline-primary mt-3 w-100">Lihat Semua Log</a>
                 </div>
@@ -157,9 +156,9 @@
                 <div class="card-body">
                     <p class="text-muted small">Berita yang masih berstatus draft:</p>
                     <div class="list-group">
-                        <a href="{{ route('admin.berita.index') }}" class="list-group-item list-group-item-action list-group-item-warning py-2 small">Draft: Seminar IT 2025</a>
-                        <a href="{{ route('admin.berita.index') }}" class="list-group-item list-group-item-action list-group-item-warning py-2 small">Draft: Jadwal Kuliah Semester Baru</a>
-                        <a href="{{ route('admin.berita.index') }}" class="list-group-item list-group-item-action list-group-item-warning py-2 small">Draft: Pengumuman Beasiswa</a>
+                        <a href="{{ route('admin.berita.index') }}" class="list-group-item list-group-item-action list-group-item-warning py-2 small">Draft: Berita Jadwal Sempro bulan November 2025</a>
+                        <a href="{{ route('admin.berita.index') }}" class="list-group-item list-group-item-action list-group-item-warning py-2 small">Draft: Jadwal Kuliah Semester Baru 20252</a>
+                        <a href="{{ route('admin.berita.index') }}" class="list-group-item list-group-item-action list-group-item-warning py-2 small">Draft: Pengumuman Beasiswa KIP-K</a>
                     </div>
                 </div>
             </div>

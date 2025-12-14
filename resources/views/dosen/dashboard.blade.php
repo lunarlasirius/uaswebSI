@@ -17,6 +17,10 @@
 
         background: var(--bg-page);
         padding: 50px 0;
+
+        /* aman untuk HP dengan notch */
+        padding-left: env(safe-area-inset-left);
+        padding-right: env(safe-area-inset-right);
     }
 
     .dosen-dashboard .page-container{
@@ -34,6 +38,7 @@
         color: var(--primary-dark);
         margin-bottom: 5px;
         position: relative;
+        letter-spacing: -.02em;
     }
     .dosen-dashboard .dashboard-header h3::after{
         content: '';
@@ -44,58 +49,83 @@
         margin-top: 8px;
         border-radius: 2px;
     }
+    .dosen-dashboard .dashboard-header p{
+        margin-bottom: 0;
+        color: var(--text-muted);
+    }
     .dosen-dashboard .dashboard-header strong{
         color: var(--primary-brand);
-        font-weight: 700;
+        font-weight: 800;
         background-color: #e6f0ff;
         padding: 2px 8px;
-        border-radius: 4px;
+        border-radius: 6px;
     }
 
-    /* === 2. KARTU UMUM === */
+    /* === 2. KARTU UMUM (interaktif HP & hover desktop) === */
     .dosen-dashboard .card{
-        border: 1px solid rgba(0,0,0,0.05);
+        border: 1px solid rgba(15, 23, 42, .06);
         border-radius: 1.25rem;
         box-shadow: var(--shadow-subtle);
-        transition: transform .3s ease, box-shadow .3s ease;
+        transition: transform .2s ease, box-shadow .2s ease, border-color .2s ease;
         background-color: var(--bg-card);
         height: 100%;
+        overflow: hidden;
+        -webkit-tap-highlight-color: transparent;
+        touch-action: manipulation;
     }
-    .dosen-dashboard .card:hover{
-        transform: translateY(-4px);
-        box-shadow: var(--shadow-hover);
+
+    /* desktop hover */
+    @media (hover:hover){
+        .dosen-dashboard .card:hover{
+            transform: translateY(-4px);
+            box-shadow: var(--shadow-hover);
+            border-color: rgba(13,110,253,.18);
+        }
+    }
+
+    /* mobile tap/active */
+    .dosen-dashboard .card:active{
+        transform: scale(.99);
+        box-shadow: 0 8px 18px rgba(0,0,0,.10);
     }
 
     .dosen-dashboard .card-header{
-        border-bottom: 1px solid rgba(0,0,0,0.1);
+        border-bottom: 1px solid rgba(0,0,0,0.08);
         background-color: var(--bg-card) !important;
         border-radius: 1.25rem 1.25rem 0 0 !important;
+        padding: 1.1rem 1.25rem 1rem;
     }
     .dosen-dashboard .card-header h5{
-        font-weight: 800;
+        font-weight: 900;
         color: var(--primary-dark);
         border-left: 5px solid var(--accent-glow);
-        padding-left: 15px;
+        padding-left: 14px;
         margin: 0;
+        letter-spacing: -.01em;
     }
 
     /* === 3. BIODATA === */
+    .dosen-dashboard .card-body{
+        padding: 1.25rem;
+    }
+
     .dosen-dashboard .biodata-label{
         color: var(--text-dark);
-        font-weight: 700 !important;
-        opacity: 0.85;
+        font-weight: 800 !important;
+        opacity: 0.9;
         font-size: 0.95rem;
     }
     .dosen-dashboard .form-control-plaintext{
         color: var(--primary-dark);
-        font-weight: 600;
-        font-size: 1.05rem;
+        font-weight: 700;
+        font-size: 1.02rem;
         padding-top: 8px;
         padding-bottom: 8px;
         margin: 0;
+        word-break: break-word;
     }
     .dosen-dashboard .biodata-card .row:not(:last-child){
-        border-bottom: 1px dashed rgba(0,0,0,0.05);
+        border-bottom: 1px dashed rgba(0,0,0,0.06);
         padding-bottom: 8px;
         padding-top: 8px;
     }
@@ -103,35 +133,45 @@
     /* === 4. FOTO & AKUN === */
     .dosen-dashboard .photo-card-title,
     .dosen-dashboard .account-card h6{
-        font-weight: 800;
+        font-weight: 900;
         color: var(--primary-dark);
-        margin-bottom: 1.5rem;
+        margin-bottom: 1.1rem;
         position: relative;
-        text-align:center;
+        text-align: center;
+        letter-spacing: .06em;
+        text-transform: uppercase;
+        font-size: .95rem;
     }
     .dosen-dashboard .photo-card-title::after,
     .dosen-dashboard .account-card h6::after{
         content: '';
         display: block;
-        width: 30px;
+        width: 34px;
         height: 2px;
         background-color: var(--primary-brand);
-        margin: 5px auto 0;
+        margin: 6px auto 0;
         border-radius: 2px;
     }
 
     .dosen-dashboard .photo-card img{
         max-width: 150px !important;
+        width: 150px;
         height: 150px;
         border-radius: 50% !important;
         object-fit: cover;
-        border: 4px solid var(--primary-brand);
+        border: 4px solid rgba(0,123,255,.85);
         box-shadow: 0 0 0 8px rgba(0,123,255,0.10);
-        transition: all .3s ease;
+        transition: transform .2s ease, border-color .2s ease;
+        display: inline-block;
     }
-    .dosen-dashboard .photo-card:hover img{
-        border-color: var(--accent-glow);
-        transform: scale(1.03);
+    @media (hover:hover){
+        .dosen-dashboard .photo-card:hover img{
+            border-color: var(--accent-glow);
+            transform: scale(1.03);
+        }
+    }
+    .dosen-dashboard .photo-card:active img{
+        transform: scale(1.02);
     }
 
     .dosen-dashboard .photo-placeholder{
@@ -152,30 +192,38 @@
     .dosen-dashboard .account-card p{
         font-size: 0.95rem;
         margin-bottom: 10px;
+        color: var(--text-muted);
+        word-break: break-word;
     }
     .dosen-dashboard .account-card strong{
         color: var(--primary-dark);
-        font-weight: 700;
+        font-weight: 800;
         min-width: 110px;
         display: inline-block;
     }
 
-    /* === 5. LOGOUT === */
+    /* === 5. LOGOUT (tap friendly) === */
     .dosen-dashboard .btn-logout{
         background-color: #dc3545;
         border-color: #dc3545;
         color: white;
-        font-weight: 700;
-        border-radius: 0.75rem;
-        padding: 0.6rem 1rem;
-        transition: all .3s ease;
-        box-shadow: 0 4px 10px rgba(220, 53, 69, 0.2);
+        font-weight: 800;
+        border-radius: 0.85rem;
+        padding: 0.7rem 1rem;
+        transition: transform .15s ease, box-shadow .15s ease, background-color .15s ease;
+        box-shadow: 0 8px 18px rgba(220, 53, 69, 0.22);
+        touch-action: manipulation;
     }
-    .dosen-dashboard .btn-logout:hover{
-        background-color: #c82333;
-        border-color: #bd2130;
-        transform: translateY(-2px);
-        box-shadow: 0 6px 15px rgba(220, 53, 69, 0.3);
+    @media (hover:hover){
+        .dosen-dashboard .btn-logout:hover{
+            background-color: #c82333;
+            border-color: #bd2130;
+            transform: translateY(-2px);
+            box-shadow: 0 10px 22px rgba(220, 53, 69, 0.28);
+        }
+    }
+    .dosen-dashboard .btn-logout:active{
+        transform: scale(.99);
     }
 
     /* === 6. ALERT === */
@@ -183,9 +231,57 @@
         border-left: 5px solid #ffc107;
         background-color: #fff8e1;
         color: #795548;
-        font-weight: 600;
-        border-radius: 0.75rem;
-        padding: 1rem 1.5rem;
+        font-weight: 700;
+        border-radius: 0.85rem;
+        padding: 1rem 1.25rem;
+    }
+
+    /* === 7. RESPONSIVE (HP) === */
+    @media (max-width: 767.98px){
+        .dosen-dashboard{
+            padding: 28px 0;
+        }
+
+        .dosen-dashboard .dashboard-header{
+            margin-bottom: 1.75rem;
+        }
+        .dosen-dashboard .dashboard-header h3{
+            font-size: 1.7rem;
+        }
+        .dosen-dashboard .dashboard-header h3::after{
+            width: 52px;
+            height: 3px;
+        }
+
+        .dosen-dashboard .card-header{
+            padding: 1rem 1rem .9rem;
+        }
+        .dosen-dashboard .card-body{
+            padding: 1rem;
+        }
+
+        /* label/value lebih rapih di HP */
+        .dosen-dashboard .biodata-label{
+            margin-bottom: .15rem;
+        }
+        .dosen-dashboard .form-control-plaintext{
+            font-size: .98rem;
+        }
+
+        /* foto lebih nyaman */
+        .dosen-dashboard .photo-card img,
+        .dosen-dashboard .photo-placeholder{
+            width: 130px !important;
+            height: 130px !important;
+        }
+    }
+
+    /* reduce motion */
+    @media (prefers-reduced-motion: reduce){
+        .dosen-dashboard *{
+            transition: none !important;
+            scroll-behavior: auto !important;
+        }
     }
 </style>
 @endpush

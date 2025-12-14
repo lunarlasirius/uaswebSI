@@ -61,7 +61,7 @@
         border-radius: 6px;
     }
 
-    /* === 2. KARTU UMUM (interaktif HP & hover desktop) === */
+    /* === 2. KARTU UMUM  === */
     .dosen-dashboard .card{
         border: 1px solid rgba(15, 23, 42, .06);
         border-radius: 1.25rem;
@@ -202,7 +202,7 @@
         display: inline-block;
     }
 
-    /* === 5. LOGOUT (tap friendly) === */
+    /* === 5. LOGOUT  === */
     .dosen-dashboard .btn-logout{
         background-color: #dc3545;
         border-color: #dc3545;
@@ -260,7 +260,6 @@
             padding: 1rem;
         }
 
-        /* label/value lebih rapih di HP */
         .dosen-dashboard .biodata-label{
             margin-bottom: .15rem;
         }
@@ -268,7 +267,6 @@
             font-size: .98rem;
         }
 
-        /* foto lebih nyaman */
         .dosen-dashboard .photo-card img,
         .dosen-dashboard .photo-placeholder{
             width: 130px !important;
@@ -276,7 +274,6 @@
         }
     }
 
-    /* reduce motion */
     @media (prefers-reduced-motion: reduce){
         .dosen-dashboard *{
             transition: none !important;

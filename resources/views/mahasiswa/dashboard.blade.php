@@ -18,7 +18,6 @@
         background: var(--bg-page);
         padding: 50px 0;
 
-        /* aman untuk HP dengan notch */
         padding-left: env(safe-area-inset-left);
         padding-right: env(safe-area-inset-right);
     }
@@ -65,7 +64,6 @@
         touch-action: manipulation;
     }
 
-    /* desktop hover */
     @media (hover:hover){
         .mhs-dashboard .info-card:hover{
             transform: translateY(-5px);
@@ -73,7 +71,6 @@
             border-bottom-color: var(--primary-main);
         }
     }
-    /* mobile tap/active */
     .mhs-dashboard .info-card:active{
         transform: scale(.99);
         box-shadow: 0 6px 14px rgba(0,0,0,.10);
@@ -109,7 +106,6 @@
         -webkit-tap-highlight-color: transparent;
     }
 
-    /* Header kartu (scope aman) */
     .mhs-dashboard .profile-card .card-header,
     .mhs-dashboard .account-card .card-header{
         background-color: transparent !important;
@@ -224,7 +220,7 @@
         transform: scale(.99);
     }
 
-    /* === 5. RESPONSIVE (HP) === */
+    /* === 5. RESPONSIVE === */
     @media (max-width: 767.98px){
         .mhs-dashboard{
             padding: 28px 0;
@@ -250,20 +246,17 @@
             padding: 1rem;
         }
 
-        /* foto lebih besar dan proporsional di HP */
         .mhs-dashboard .profile-photo-box{
             max-width: 220px;
             height: 240px;
             border-width: 3px;
         }
 
-        /* rapikan label/value kalau mepet */
         .mhs-dashboard .profile-label{
             margin-bottom: .15rem;
         }
     }
 
-    /* reduce motion */
     @media (prefers-reduced-motion: reduce){
         .mhs-dashboard *{
             transition: none !important;

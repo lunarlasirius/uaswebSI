@@ -42,9 +42,6 @@
             @error('foto')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
-            <small class="text-muted d-block mt-1">
-                Format: JPG/PNG/WebP, maksimal sesuai aturan di controller.
-            </small>
         </div>
 
         <div class="mb-3">

@@ -4,7 +4,6 @@
 
 @push('styles')
 <style>
-    /* ===== Scoped hanya untuk halaman login ===== */
     .login-page{
         --blue: #0d6efd;
         --blue-600: #0b5ed7;
@@ -13,12 +12,11 @@
         --line: rgba(15,23,42,.10);
 
         padding: 3rem 0;
-        min-height: calc(100vh - 140px); /* aman, footer tetap ikut layout */
+        min-height: calc(100vh - 140px); 
         display: flex;
         align-items: center;
     }
 
-    /* background halus (tidak mengubah body) */
     .login-page::before{
         content:"";
         position: fixed;
@@ -42,7 +40,6 @@
         position: relative;
     }
 
-    /* header strip */
     .login-page .card-body::before{
         content:"";
         position:absolute;
@@ -105,7 +102,6 @@
         box-shadow: 0 .6rem 1.2rem rgba(13,110,253,.22);
     }
 
-    /* error alert lebih rapi */
     .login-page .alert{
         border-radius: .9rem;
         border: 1px solid rgba(220,53,69,.25);
@@ -116,12 +112,10 @@
         margin-bottom: 0;
     }
 
-    /* invalid state tetap bootstrap-friendly */
     .login-page .form-control.is-invalid:focus{
         box-shadow: 0 0 0 .25rem rgba(220,53,69,.15);
     }
 
-    /* mobile spacing */
     @media (max-width: 575.98px){
         .login-page{
             padding: 2rem 0;

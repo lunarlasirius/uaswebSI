@@ -27,7 +27,6 @@ class AdminFasilitasController extends Controller
         return view('admin.fasilitas.index', compact('fasilitas'));
     }
 
-    /* Form tambah fasilitas */
     public function create()
     {
         $this->authorizeAdmin();
@@ -35,7 +34,6 @@ class AdminFasilitasController extends Controller
         return view('admin.fasilitas.create');
     }
 
-    /* Simpan fasilitas baru */
     public function store(Request $request)
     {
         $this->authorizeAdmin();
@@ -46,12 +44,9 @@ class AdminFasilitasController extends Controller
             'foto'           => 'nullable|image|max:5120',
         ]);
 
-        // Upload foto jika ada
         $pathFoto = null;
         if ($request->hasFile('foto')) {
-            // hasil: "fasilitas/nama-file.jpg" di disk "public"
             $storedPath = $request->file('foto')->store('fasilitas', 'public');
-            // yang disimpan ke DB: "storage/fasilitas/nama-file.jpg"
             $pathFoto = 'storage/' . $storedPath;
         }
 
@@ -66,7 +61,6 @@ class AdminFasilitasController extends Controller
             ->with('success', 'Fasilitas berhasil ditambahkan.');
     }
 
-    /* Form edit fasilitas */
     public function edit(Fasilitas $fasilita)
     {
         $this->authorizeAdmin();
@@ -76,7 +70,6 @@ class AdminFasilitasController extends Controller
         ]);
     }
 
-    /* Update fasilitas */
     public function update(Request $request, Fasilitas $fasilita)
     {
         $this->authorizeAdmin();

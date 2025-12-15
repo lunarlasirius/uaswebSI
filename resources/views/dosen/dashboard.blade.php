@@ -18,7 +18,6 @@
         background: var(--bg-page);
         padding: 50px 0;
 
-        /* aman untuk HP dengan notch */
         padding-left: env(safe-area-inset-left);
         padding-right: env(safe-area-inset-right);
     }
@@ -83,7 +82,6 @@
         }
     }
 
-    /* mobile tap/active */
     .dosen-dashboard .card:active{
         transform: scale(.99);
         box-shadow: 0 8px 18px rgba(0,0,0,.10);

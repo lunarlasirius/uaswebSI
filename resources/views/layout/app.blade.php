@@ -59,7 +59,6 @@
             transition: color 0.15s ease, transform 0.12s ease;
         }
 
-        /* underline animasi */
         .nav-link::after {
             content: "";
             position: absolute;
@@ -95,7 +94,6 @@
             opacity: 1;
         }
 
-        /* Dropdown style */
         .dropdown-menu {
             border-radius: 0.75rem;
             border: 1px solid rgba(148, 163, 184, 0.35);
@@ -123,7 +121,6 @@
             font-weight: 600;
         }
 
-        /* Toggler */
         .navbar-custom .navbar-toggler {
             border-color: rgba(148, 163, 184, 0.7);
         }
@@ -151,7 +148,6 @@
 <body>
 
     @php
-        // Sembunyikan navbar di semua halaman admin / mahasiswa / dosen
         $hideNavbar = request()->routeIs('admin.*')
             || request()->routeIs('mahasiswa.*')
             || request()->routeIs('dosen.*');

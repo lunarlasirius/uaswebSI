@@ -10,7 +10,7 @@ class AuthController extends Controller
     // TAMPILKAN FORM LOGIN
     public function showLoginForm()
     {
-        return view('auth.login'); // bikin view: resources/views/auth/login.blade.php
+        return view('auth.login'); 
     }
 
     // PROSES LOGIN

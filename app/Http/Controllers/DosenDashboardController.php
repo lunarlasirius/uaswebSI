@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
-use App\Models\Dosens; // pastikan nama modelnya sama dengan yang kamu buat
+use App\Models\Dosens; 
 
 class DosenDashboardController extends Controller
 {

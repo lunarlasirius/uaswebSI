@@ -16,7 +16,6 @@ class AdminProfilJurusanController extends Controller
         }
     }
 
-    // Tampilkan form edit profil jurusan
     public function edit()
     {
         $this->authorizeAdmin();

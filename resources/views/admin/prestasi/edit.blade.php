@@ -61,20 +61,22 @@
             @enderror
         </div>
 
+        {{-- ✅ Tahun diambil dari kolom tanggal (format Y) --}}
         <div class="mb-3">
             <label class="form-label">Tahun</label>
             <input type="number" name="tahun"
                 class="form-control @error('tahun') is-invalid @enderror"
-                value="{{ old('tahun', $prestasi->tahun) }}">
+                value="{{ old('tahun', $prestasi->tanggal ? \Carbon\Carbon::parse($prestasi->tanggal)->format('Y') : '') }}">
             @error('tahun')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror
         </div>
 
+        {{-- ✅ Keterangan diambil dari kolom deskripsi --}}
         <div class="mb-3">
             <label class="form-label">Keterangan</label>
             <textarea name="keterangan" rows="4"
-                    class="form-control @error('keterangan') is-invalid @enderror">{{ old('keterangan', $prestasi->keterangan) }}</textarea>
+                    class="form-control @error('keterangan') is-invalid @enderror">{{ old('keterangan', $prestasi->deskripsi) }}</textarea>
             @error('keterangan')
                 <div class="invalid-feedback">{{ $message }}</div>
             @enderror

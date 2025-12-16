@@ -29,17 +29,17 @@ class AdminPrestasiController extends Controller
         return view('admin.prestasi.create');
     }
 
-    public function store(Request $request)
+        public function store(Request $request)
     {
         $this->authorizeAdmin();
 
         $validated = $request->validate([
-            'judul'     => 'required|string|max:255',
-            'foto'      => 'nullable|image|max:15048',
-            'tanggal'   => 'nullable|date',
-            'kategori'  => 'nullable|string|max:100',
-            'tingkat'   => 'nullable|string|max:100',
-            'deskripsi' => 'nullable|string',
+            'judul'       => 'required|string|max:255',
+            'foto'        => 'nullable|image|max:15048',
+            'tahun'       => 'nullable|digits:4',
+            'kategori'    => 'nullable|string|max:100',
+            'tingkat'     => 'nullable|string|max:100',
+            'keterangan'  => 'nullable|string',
         ]);
 
         $pathFoto = null;
@@ -50,15 +50,18 @@ class AdminPrestasiController extends Controller
         prestasis::create([
             'judul'     => $validated['judul'],
             'foto'      => $pathFoto ? 'storage/' . $pathFoto : null,
-            'tanggal'   => $validated['tanggal'] ?? null,
+            'tanggal'   => !empty($validated['tahun'])
+                            ? $validated['tahun'] . '-01-01'
+                            : null,
             'kategori'  => $validated['kategori'] ?? null,
             'tingkat'   => $validated['tingkat'] ?? null,
-            'deskripsi' => $validated['deskripsi'] ?? '',
+            'deskripsi' => $validated['keterangan'] ?? '',
         ]);
 
         return redirect()->route('admin.prestasi.index')
-                         ->with('success', 'Prestasi berhasil ditambahkan.');
+            ->with('success', 'Prestasi berhasil ditambahkan.');
     }
+
 
     public function edit(prestasis $prestasi)
     {
@@ -71,12 +74,12 @@ class AdminPrestasiController extends Controller
         $this->authorizeAdmin();
 
         $validated = $request->validate([
-            'judul'     => 'required|string|max:255',
-            'foto'      => 'nullable|image|max:15048',
-            'tanggal'   => 'nullable|date',
-            'kategori'  => 'nullable|string|max:100',
-            'tingkat'   => 'nullable|string|max:100',
-            'deskripsi' => 'nullable|string',
+            'judul'       => 'required|string|max:255',
+            'foto'        => 'nullable|image|max:15048',
+            'tahun'       => 'nullable|digits:4',
+            'kategori'    => 'nullable|string|max:100',
+            'tingkat'     => 'nullable|string|max:100',
+            'keterangan'  => 'nullable|string',
         ]);
 
         if ($request->hasFile('foto')) {
@@ -85,14 +88,16 @@ class AdminPrestasiController extends Controller
         }
 
         $prestasi->judul     = $validated['judul'];
-        $prestasi->tanggal   = $validated['tanggal'] ?? null;
+        $prestasi->tanggal   = !empty($validated['tahun'])
+                                ? $validated['tahun'] . '-01-01'
+                                : null;
         $prestasi->kategori  = $validated['kategori'] ?? null;
         $prestasi->tingkat   = $validated['tingkat'] ?? null;
-        $prestasi->deskripsi = $validated['deskripsi'] ?? '';
+        $prestasi->deskripsi = $validated['keterangan'] ?? '';
         $prestasi->save();
 
         return redirect()->route('admin.prestasi.index')
-                         ->with('success', 'Prestasi berhasil diperbarui.');
+            ->with('success', 'Prestasi berhasil diperbarui.');
     }
 
     public function destroy(prestasis $prestasi)

@@ -32,13 +32,20 @@
                     <td>{{ $item->nama_fasilitas ?? '-' }}</td>
                     <td>{{ \Illuminate\Support\Str::limit($item->deskripsi ?? '-', 60) }}</td>
                     <td>
-                        @if(!empty($item->gambar))
-                            <img src="{{ asset($item->gambar) }}"
-                                 alt="{{ $item->nama_fasilitas }}"
-                                 style="max-width: 100px;">
-                        @else
-                            -
-                        @endif
+                    @if(!empty($item->foto))
+                    @php
+                        $fotoUrl = $item->foto;
+                        if ($fotoUrl && !\Illuminate\Support\Str::startsWith($fotoUrl, ['http://', 'https://', 'storage/'])) {
+                            $fotoUrl = 'storage/' . ltrim($fotoUrl, '/');
+                        }
+                    @endphp
+
+                    <img src="{{ asset($fotoUrl) }}"
+                        alt="{{ $item->nama_fasilitas }}"
+                        style="max-width: 100px; height:auto; object-fit:cover;">
+                @else
+                    -
+                @endif
                     </td>
                     <td>
                         <a href="{{ route('admin.fasilitas.edit', $item->id) }}"

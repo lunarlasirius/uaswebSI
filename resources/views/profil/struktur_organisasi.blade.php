@@ -4,10 +4,6 @@
 
 @push('styles')
 <style>
-    /* ==============================
-       SCOPE KHUSUS HALAMAN STRUKTUR
-       (biar tidak ganggu navbar/layout lain)
-       ============================== */
     .org-wrap{
         --blue-primary: #1769aa;
         --blue-dark: #0f3f6e;
@@ -78,13 +74,11 @@
         background: #fff;
     }
 
-    /* Hint */
     .org-hint{
         font-size: .95rem;
         color: var(--sub-text-color);
     }
 
-    /* Modal */
     .org-modal-img{
         width: 100%;
         height: auto;

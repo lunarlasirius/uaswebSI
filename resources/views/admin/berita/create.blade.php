@@ -123,7 +123,6 @@
                     </div>
                 </div>
 
-                {{-- tombol bawah: tidak berjauhan --}}
                 <div class="form-actions">
                     <a href="{{ route('admin.berita.index') }}" class="btn btn-outline-secondary">
                         Batal
